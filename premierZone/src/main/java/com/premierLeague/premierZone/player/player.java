@@ -6,10 +6,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="player_stats")
+@Table(name="player_data")
 public class player {
     @Id
-    @Column(name = "name",unique = true)
+    @Column(name = "player_name",unique = true)
     private String name;
     private String nation;
     private String pos;
@@ -26,9 +26,10 @@ public class player {
     private Double xag;
     private String team;
 
-    public player() {
-    }
 
+    public player(String name) {
+        this.name = name;
+    }
     public player(String name, String nation, String pos, Integer age, Integer mp, Integer starts, Double min, Double gls, Double ast, Double pk, Double crdy, Double crdr, Double xg, Double xag, String team) {
         this.name = name;
         this.nation = nation;
@@ -46,6 +47,10 @@ public class player {
         this.xag = xag;
         this.team = team;
     }
+
+    public player() {
+    }
+
 
     public String getName() {
         return name;
@@ -165,5 +170,26 @@ public class player {
 
     public void setTeam(String team) {
         this.team = team;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", nation='" + nation + '\'' +
+                ", pos='" + pos + '\'' +
+                ", age=" + age +
+                ", mp=" + mp +
+                ", starts=" + starts +
+                ", min=" + min +
+                ", gls=" + gls +
+                ", ast=" + ast +
+                ", pk=" + pk +
+                ", crdy=" + crdy +
+                ", crdr=" + crdr +
+                ", xg=" + xg +
+                ", xag=" + xag +
+                ", team='" + team + '\'' +
+                '}';
     }
 }
